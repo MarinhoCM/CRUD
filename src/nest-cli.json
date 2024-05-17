@@ -1,0 +1,8 @@
+{
+    "$schema": "https://json.schemastore.org/nest-cli",
+    "collection": "@nestjs/schematics",
+    "sourceRoot": "src/backend/students",
+    "compilerOptions": {
+        "deleteOutDir": true
+    }
+}
