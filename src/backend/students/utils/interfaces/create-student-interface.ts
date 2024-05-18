@@ -12,8 +12,8 @@ export interface Student {
         address: string;
         email: string;
         phoneNumber: string;
-        parentOrGuardian: string;
-        parentPhoneNumber: string;
+        parentOrGuardian?: string;
+        parentPhoneNumber?: string;
     };
 
     academicInformation: {
@@ -23,11 +23,11 @@ export interface Student {
         academicHistory?: string[];
     };
 
-    grades: {
-        subjects: {
+    grades?: {
+        subjects?: {
             name: string;
             teacher: string;
-            grade: number;
+            grade: number[];
         }[];
         overallAverage: number;
     };

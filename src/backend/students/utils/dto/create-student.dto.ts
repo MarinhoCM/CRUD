@@ -24,13 +24,15 @@ export class ContactInformationDTO {
     @IsString()
     phoneNumber?: string;
 
+    @IsOptional()
     @IsNotEmpty()
     @IsString()
-    parentOrGuardian: string;
+    parentOrGuardian?: string;
 
+    @IsOptional()
     @IsNotEmpty()
     @IsString()
-    parentPhoneNumber: string;
+    parentPhoneNumber?: string;
 };
 
 export class AcademicInformationDTO {
@@ -62,16 +64,17 @@ export class SubjectDTO {
     teacher: string;
 
     @IsNumber()
-    @Min(0)
-    @Max(100)
+    @IsArray()
+    @ArrayNotEmpty()
     grade: number;
 }
 
 export class GradesDTO {
     @IsArray()
+    @IsOptional()
     @ArrayNotEmpty()
     @ValidateNested()
-    subjects: SubjectDTO[];
+    subjects?: SubjectDTO[];
 
     @IsNumber()
     @Min(0)
@@ -96,8 +99,9 @@ export class AdministrativeInformationDTO {
     enrollmentStatus: EnrollmentStatusEnum;
 
     @IsString()
+    @IsOptional()
     @IsNotEmpty()
-    academicAdvisor: string;
+    academicAdvisor?: string;
 }
 
 export class CreateStudentDTO {
@@ -132,13 +136,16 @@ export class CreateStudentDTO {
     @Type(() => AcademicInformationDTO)
     academicInformation: AcademicInformationDTO;
 
+    @IsOptional()
     @ValidateNested({ each: true })
     @Type(() => GradesDTO)
-    grades: GradesDTO;
+    grades?: GradesDTO;
 
     @ValidateNested({ each: true })
     @Type(() => OtherInformationDTO)
     otherInformation?: OtherInformationDTO;
 
+    @ValidateNested({ each: true })
+    @Type(() => AdministrativeInformationDTO)
     administrativeInformation: AdministrativeInformationDTO;
 }
