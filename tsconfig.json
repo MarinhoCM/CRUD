@@ -17,17 +17,5 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "paths": {
-      "@app/*": [
-        "src/backend/students/*"
-      ]
-    },
-    "include": [
-      "src/backend/students/**/*"
-    ],
-    "exclude": [
-      "node_modules",
-      "dist"
-    ]
   }
 }
